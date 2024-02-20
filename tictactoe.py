@@ -16,9 +16,8 @@ def game_Human():
     output = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     check_Item = "x"
-    while True:
+    for i in range(9):
         print(f"It's the turn of {check_Item}.")
-        # check_Item = input("Type your Item (o or x)\n> ")
         number = input("\nType a number between 1 to 9\n> ")
 
         while True:
@@ -48,16 +47,7 @@ def game_Human():
 
         print(game)
         time.sleep(1)
-        
 
-        # if output[0] == '\x1b[1mx\x1b[0m' and output[1] == '\x1b[1mx\x1b[0m' and output[2] == '\x1b[1mx\x1b[0m':
-            # time.sleep(1)
-            # print(Style.BRIGHT + " wins!" + Style.RESET_ALL)
-            # break
-        #if output[0] == check_Item and output[1] == check_Item and output[2] == check_Item:
-            #time.sleep(1)
-            #print(f"{check_Item} wins!")
-            #break
 
         if output[0] == output[1] == output[2]:
             time.sleep(1)
@@ -92,21 +82,19 @@ def game_Human():
             print(f"{Style.BRIGHT}{check_Item} wins!{Style.RESET_ALL}")
             break
 
-        if output[0:8] == '\x1b[1mo\x1b[0m' and output[0:8] == '\x1b[1mx\x1b[0m':
-            time.sleep(1)
-            print("This is a draw")
-            break
-
         if check_Item == "x":
             check_Item = "o"
         else:
             check_Item = "x"
+            
+    print("This is a draw!")
+
 
 
 
 def game_AI():
     output = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    while True:
+    for i in range(9):
         print("It's your turn")
         check_Item = "x"
         number = input("\nType a number between 1 to 9\n> ")
@@ -179,12 +167,6 @@ def game_AI():
             print(f"{Style.BRIGHT}{check_Item} wins!{Style.RESET_ALL}")
             break
 
-        elif output[0:8] == '\x1b[1mo\x1b[0m' and output[0:8] == '\x1b[1mx\x1b[0m':
-            time.sleep(1)
-            print("This is a draw")
-            break
-
-
 
         print(f"It's the turn of AI.")
         check_Item = 'o'
@@ -237,6 +219,7 @@ def game_AI():
             time.sleep(1)
             print("This is a draw")
             break
+    print("This is a draw!")
 
 
 def check_choice():
