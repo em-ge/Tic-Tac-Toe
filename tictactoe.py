@@ -3,7 +3,10 @@ import random
 import sys
 from colorama import Style
 
+
 example = "\nType a number between 1 to 9\n1 2 3\n4 5 6\n7 8 9\n\n> "
+
+output = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 Ai_Game = False
 
@@ -66,9 +69,7 @@ def start():
     print("Type 'help' for help;\nType 'exit' to exit this Game\n\nLet's Go!")
 
 
-def game_Human():
-    output = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
+def game_Human(output):
     check_Item = "x"
     for i in range(9):
         print(f"It's the turn of {check_Item}.")
@@ -173,8 +174,7 @@ def game_Human():
     print("This is a draw!")
 
 
-def game_AI(Ai_Game):
-    output = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+def game_AI(Ai_Game, output):
     Ai_Game = True
 
     for i in range(9):
@@ -345,10 +345,10 @@ def check_choice():
 
     if choice == "AI":
         print("Ok, Let's Go!")
-        game_AI()
+        game_AI(Ai_Game, output)
     elif choice == "human":
         print("Ok, Let's Go!")
-        game_Human()
+        game_Human(output)
     else:
         while True:
             print("Error, please type a right answer")
@@ -365,10 +365,10 @@ def check_choice():
 
             if choice == "AI":
                 print("Ok, Let's Go!")
-                game_AI()
+                game_AI(Ai_Game, output)
                 break
             elif choice == "human":
-                game_Human()
+                output
                 print("Ok, Let's Go!")
                 break
 
