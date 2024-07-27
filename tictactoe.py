@@ -5,14 +5,65 @@ from colorama import Style
 
 example = "\nType a number between 1 to 9\n1 2 3\n4 5 6\n7 8 9\n\n> "
 
+Ai_Game = False
+
+
+def help(Ai_Game):
+    ai_rules = """
+Tic-Tac-Toe is a two-player game where players take turns marking a 3x3 grid with X or O.
+The goal is to be the first to get three marks in a row, either horizontally, vertically, or diagonally. 
+If all nine cells are filled without three in a row, the game is a draw.
+    """
+    print("You entered help.\nType 'continue' to continue this Game;\n")
+    print("Type 'exit' to exit this Game;\nType again 'help' to get help")
+    while True:
+        help_menu = input("> ")
+        if help_menu == "exit":
+            exit()
+        elif help_menu == "help":
+            if Ai_Game == True:
+                print(f"""
+HELP MENU
+
+{ai_rules}
+
+Type 'exit' to exit this Game;
+Type 'continue' to continue this Game;
+""")
+            else:
+                print(f"""
+HELP MENU
+
+{ai_rules}
+
+Type 'exit' to exit this Game;
+Type 'continue' to continue this Game;
+""")
+        elif help_menu == "continue":
+            break
+        else:
+            print("Please type a suitable word.")
+
+
+def exit():
+    print("\nDo you really wanna exit this game?\nType 'exit' again to exitcor 'continue' to continue playing this game.")     
+    while True:
+        exit = input("> ") 
+        if exit == "exit":
+            sys.exit()
+        if exit == "continue":
+            break
+        else:
+            print("Please type a suitable answer!")
 
 def start():
     print(Style.BRIGHT + "\n\nTIC TAC TOE:\n" + Style.RESET_ALL)
     time.sleep(1)
     print("Type your number, where you want to set the x or o in this Game Board:\n\n1 2 3\n4 5 6\n7 8 9")
     print(
-        "If you have your item (x or o) in a row, ... or ... you win!\n\nType 'help' for help;\nType 'exit' to exit this Game\n\nLet's Go!"
-    )
+        "Horizontal Win: Three symbols in any row.\nVertical Win: Three symbols in any column.\nDiagonal Win: Three symbols across the diagonals.\n\n"
+    ) 
+    print("Type 'help' for help;\nType 'exit' to exit this Game\n\nLet's Go!")
 
 
 def game_Human():
@@ -24,7 +75,7 @@ def game_Human():
         number = input("\nType a number between 1 to 9\n> ")
 
         if number == "help":
-            help()
+            help(Ai_Game)
 
         if number == "exit":
             exit()
@@ -38,7 +89,7 @@ def game_Human():
                 number = input("\nType a number between 1 to 9\n> ")
 
                 if number == "help":
-                    help()
+                    help(Ai_Game)
 
                 if number == "exit":
                     exit()
@@ -52,7 +103,7 @@ def game_Human():
                 number = input("\nType a number between 1 to 9\n> ")
 
                 if number == "help":
-                    help()
+                    help(Ai_Game)
                 
                 if number == "exit":
                     exit()
@@ -66,7 +117,7 @@ def game_Human():
                 number = input("\nType a number between 1 to 9\n> ")
 
                 if number == "help":
-                    help()
+                    help(Ai_Game)
 
                 if number == "exit":
                     exit()
@@ -122,8 +173,9 @@ def game_Human():
     print("This is a draw!")
 
 
-def game_AI():
+def game_AI(Ai_Game):
     output = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    Ai_Game = True
 
     for i in range(9):
         print("It's your turn")
@@ -131,7 +183,7 @@ def game_AI():
         number = input("\nType a number between 1 to 9\n> ")
 
         if number == "help":
-            help()
+            help(Ai_Game)
 
         if number == "exit":
             exit()
@@ -145,7 +197,7 @@ def game_AI():
                 number = input("\nType a number between 1 to 9\n> ")
 
                 if number == "help":
-                    help()
+                    help(Ai_Game)
 
                 if number == "exit":
                     exit()
@@ -159,7 +211,7 @@ def game_AI():
                 number = input("\nType a number between 1 to 9\n> ")
 
                 if number == "help":
-                    help()
+                    help(Ai_Game)
                 
                 if number == "exit":
                     exit()
@@ -173,7 +225,7 @@ def game_AI():
                 number = input("\nType a number between 1 to 9\n> ")
 
                 if number == "help":
-                    help()
+                    help(Ai_Game)
 
                 if number == "exit":
                     exit()
@@ -285,7 +337,7 @@ def check_choice():
     )
 
     if choice == "help":
-        help()
+        help(Ai_Game)
 
     if choice == "exit":
         exit()
@@ -305,7 +357,7 @@ def check_choice():
             )
 
             if choice == "help":
-                help()
+                help(Ai_Game)
 
             if choice == "exit":
                 exit()
@@ -320,38 +372,6 @@ def check_choice():
                 print("Ok, Let's Go!")
                 break
 
-def help():
-    print("You entered help.\nType 'continue' to continue this Game;\n")
-    print("Type 'exit' to exit this Game;\nType again 'help' to get help")
-    while True:
-        help_menu = input("> ")
-        if help_menu == "exit":
-            exit()
-        elif help_menu == "help":
-            print("""
-HELP MENU
-
-            
-
-Type 'exit' to exit this Game;
-Type 'continue' to continue this Game;
-""")
-        elif help_menu == "continue":
-            break
-        else:
-            print("Please type a suitable word.")
-
-
-def exit():
-    print("Do you really wanna exit this game?\nType 'exit' again to exitcor 'continue' to continue playing this game.")     
-    while True:
-        exit = input("> ") 
-        if exit == "exit":
-            sys.exit()
-        if exit == "continue":
-            break
-        else:
-            print("Please type a suitable answer!")
 
 
 while True:
