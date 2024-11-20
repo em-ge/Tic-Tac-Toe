@@ -21,51 +21,60 @@ If all nine cells are filled without three in a row, the game is a draw.
     print("Type 'exit' to exit this Game;\nType again 'help' to get help")
     while True:
         help_menu = input("> ")
-        if help_menu == "exit":
+        if help_menu.lower() == "exit":
             exit()
-        elif help_menu == "help":
+        elif help_menu.lower() == "help":
             if Ai_Game == True:
-                print(f"""
+                print(
+                    f"""
 HELP MENU
 
 {ai_rules}
 
 Type 'exit' to exit this Game;
 Type 'continue' to continue this Game;
-""")
+"""
+                )
             else:
-                print(f"""
+                print(
+                    f"""
 HELP MENU
 
 {ai_rules}
 
 Type 'exit' to exit this Game;
 Type 'continue' to continue this Game;
-""")
-        elif help_menu == "continue":
+"""
+                )
+        elif help_menu.lower() == "continue":
             break
         else:
             print("Please type a suitable word.")
 
 
 def exit():
-    print("\nDo you really wanna exit this game?\nType 'exit' again to exitcor 'continue' to continue playing this game.")     
+    print(
+        "\nDo you really wanna exit this game?\nType 'exit' again to exit or 'continue' to continue playing this game."
+    )
     while True:
-        exit = input("> ") 
-        if exit == "exit":
+        exit = input("> ")
+        if exit.lower() == "exit":
             sys.exit()
         if exit == "continue":
             break
         else:
             print("Please type a suitable answer!")
 
+
 def start():
     print(Style.BRIGHT + "\n\nTIC TAC TOE:\n" + Style.RESET_ALL)
     time.sleep(1)
-    print("Type your number, where you want to set the x or o in this Game Board:\n\n1 2 3\n4 5 6\n7 8 9")
+    print(
+        "Type your number, where you want to set the x or o in this Game Board:\n\n1 2 3\n4 5 6\n7 8 9"
+    )
     print(
         "Horizontal Win: Three symbols in any row.\nVertical Win: Three symbols in any column.\nDiagonal Win: Three symbols across the diagonals.\n\n"
-    ) 
+    )
     print("Type 'help' for help;\nType 'exit' to exit this Game\n\nLet's Go!")
 
 
@@ -75,24 +84,24 @@ def game_Human(output):
         print(f"It's the turn of {check_Item}.")
         number = input("\nType a number between 1 to 9\n> ")
 
-        if number == "help":
+        if number.lower() == "help":
             help(Ai_Game)
 
-        if number == "exit":
+        if number.lower() == "exit":
             exit()
 
         while True:
-            if number == "help":
+            if number.lower() == "help":
                 start()
 
             if number.isalpha():
                 print("Please type a number and no letter!")
                 number = input("\nType a number between 1 to 9\n> ")
 
-                if number == "help":
+                if number.lower() == "help":
                     help(Ai_Game)
 
-                if number == "exit":
+                if number.lower() == "exit":
                     exit()
 
                 continue
@@ -103,10 +112,10 @@ def game_Human(output):
                 print("Please type a number with a free Field!")
                 number = input("\nType a number between 1 to 9\n> ")
 
-                if number == "help":
+                if number.lower() == "help":
                     help(Ai_Game)
-                
-                if number == "exit":
+
+                if number.lower() == "exit":
                     exit()
 
                 continue
@@ -117,10 +126,10 @@ def game_Human(output):
                 print("Please select an empty Field")
                 number = input("\nType a number between 1 to 9\n> ")
 
-                if number == "help":
+                if number.lower() == "help":
                     help(Ai_Game)
 
-                if number == "exit":
+                if number.lower() == "exit":
                     exit()
 
                 continue
@@ -182,10 +191,10 @@ def game_AI(Ai_Game, output):
         check_Item = "x"
         number = input("\nType a number between 1 to 9\n> ")
 
-        if number == "help":
+        if number.lower() == "help":
             help(Ai_Game)
 
-        if number == "exit":
+        if number.lower() == "exit":
             exit()
 
         while True:
@@ -196,10 +205,10 @@ def game_AI(Ai_Game, output):
                 print("Please type a number and no letter!")
                 number = input("\nType a number between 1 to 9\n> ")
 
-                if number == "help":
+                if number.lower() == "help":
                     help(Ai_Game)
 
-                if number == "exit":
+                if number.lower() == "exit":
                     exit()
 
                 continue
@@ -210,10 +219,10 @@ def game_AI(Ai_Game, output):
                 print("Please type a number with a free Field!")
                 number = input("\nType a number between 1 to 9\n> ")
 
-                if number == "help":
+                if number.lower() == "help":
                     help(Ai_Game)
-                
-                if number == "exit":
+
+                if number.lower() == "exit":
                     exit()
 
                 continue
@@ -224,10 +233,10 @@ def game_AI(Ai_Game, output):
                 print("Please select an empty Field")
                 number = input("\nType a number between 1 to 9\n> ")
 
-                if number == "help":
+                if number.lower() == "help":
                     help(Ai_Game)
 
-                if number == "exit":
+                if number.lower() == "exit":
                     exit()
 
                 continue
@@ -333,45 +342,42 @@ def game_AI(Ai_Game, output):
 
 def check_choice():
     choice = input(
-        "Do you want to play aganst an AI or a human?\nType 'AI' to play aganst a AI or 'human' to play angainst a human.\n> "
+        "Do you want to play against an AI or a human?\nType 'AI' to play against a AI or 'human' to play against a human.\n> "
     )
 
-    if choice == "help":
+    if choice.lower() == "help":
         help(Ai_Game)
 
-    if choice == "exit":
+    if choice.lower() == "exit":
         exit()
-    
 
-    if choice == "AI":
-        print("Ok, Let's Go!")
+    if choice.lower() == "AI":
+        print("Ok, let's go!")
         game_AI(Ai_Game, output)
-    elif choice == "human":
-        print("Ok, Let's Go!")
+    elif choice.lower() == "human":
+        print("Ok, let's go!")
         game_Human(output)
     else:
         while True:
             print("Error, please type a right answer")
             choice = input(
-                "Do you want to play aganst an AI or a human?\nType 'AI' to play aganst a AI or 'human' to play angainst a human.\n> "
+                "Do you want to play against an AI or a human?\nType 'AI' to play against a AI or 'human' to play against a human.\n> "
             )
 
-            if choice == "help":
+            if choice.lower() == "help":
                 help(Ai_Game)
 
-            if choice == "exit":
+            if choice.lower() == "exit":
                 exit()
 
-
-            if choice == "AI":
+            if choice.lower() == "AI":
                 print("Ok, Let's Go!")
                 game_AI(Ai_Game, output)
                 break
-            elif choice == "human":
+            elif choice.lower() == "human":
                 output
                 print("Ok, Let's Go!")
                 break
-
 
 
 while True:
@@ -380,20 +386,20 @@ while True:
     answer = input(
         "\n\nDo you want to play again? Then Type 'restart'. Else Type 'exit'\n> "
     )
-    if answer == "exit":
+    if answer.lower() == "exit":
         print("Ok, the Program will end. Bye\n")
         sys.exit("\n")
-    elif answer == "restart":
-        print("Ok, Programm wil restart")
+    elif answer.lower() == "restart":
+        print("Ok, program wil restart")
     else:
         while True:
             print("Error, please type a right answer")
             answer = input(
                 "\n\nDo you want to play again? Then Type 'restart'. Else Type 'exit'\n> "
             )
-            if answer == "exit":
+            if answer.lower() == "exit":
                 print("Ok, the Program will end. Bye\n")
                 sys.exit("\n")
-            elif answer == "restart":
-                print("Ok, Programm will restart")
+            elif answer.lower() == "restart":
+                print("Ok, Program will restart")
                 break
